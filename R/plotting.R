@@ -17,11 +17,16 @@ my_theme <- function(){
 
 #' @export
 save_plot_png <- function(plot, title,
-                          width = 790,
-                          height = 553){
+                          pwidth = 790,
+                          pheight = 553){
 
-  fileName <- paste(title,".png")
-  png(fileName, width = width, height = height, bg="white")
+  if(!dir.exists("./Plots")) {
+    filename <- paste(title,".png")
+    png(filename, pwidth, pheight, bg="white")
+  } else {
+    filename <- paste("./Plots/", title, ".png")
+    png(filename, pwidth, pheight, bg="white")
+  }
   print(plot)
   dev.off()
 
