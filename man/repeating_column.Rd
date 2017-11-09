@@ -4,7 +4,7 @@
 \alias{repeating_column}
 \title{Check if all values in a column are the same}
 \usage{
-repeating_column(x, roundx = NA)
+repeating_column(x, roundx = NULL)
 }
 \arguments{
 \item{x}{Vector of values}
