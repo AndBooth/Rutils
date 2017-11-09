@@ -17,8 +17,8 @@
 
 all_na <- function(x) {
 
-  if (!is.vector(x)) {
-    stop("Input '", label, "' is not of type: vector", call. = FALSE)
+  if (!is.vector(x) & !is.factor(x)) {
+    stop("Input is not a column", call. = FALSE)
   }
 
   all(is.na(x))
@@ -72,7 +72,7 @@ percent_empty <- function(x) {
 #' purrr::map_lgl(testdf, ~ repeating_column(.))
 #' @export
 repeating_column <- function(x,
-                             roundx = NA) {
+                             roundx = NULL) {
 
   if (is.character(x) | is.factor(x)) {
 
@@ -82,7 +82,7 @@ repeating_column <- function(x,
 
     xvar <- var(x, na.rm = T)
 
-    if (is.na(roundx)) {
+    if (is.null(roundx)) {
 
       identical <- ifelse(xvar == 0, T, F)
 
