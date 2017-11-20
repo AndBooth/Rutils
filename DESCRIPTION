@@ -12,4 +12,5 @@ LazyData: true
 RoxygenNote: 6.0.1
 Suggests: testthat
 Imports: lazyeval,
-    tidyquant
+    tidyquant,
+    dplyr
