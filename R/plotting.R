@@ -1,7 +1,7 @@
 
 #' @export
 theme_tidy <- function(){
-  tidyquant::theme_tq() %+replace%
+  ggplot2::theme_minimal() %+replace%
     theme(axis.title = element_text(size = 14),
           axis.text = element_text(size = 14),
           plot.title = element_text(vjust = 1.5,size = 24),
