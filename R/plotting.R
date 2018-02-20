@@ -21,12 +21,19 @@ theme_tidy <- function(){
 #' @param pheight heigh of the plot in pixels
 #' @export
 save_plot_png <- function(plot, title,
+                          subfolder = NULL,
                           pwidth = 790,
                           pheight = 553){
 
-  filename <- ifelse(dir.exists("./Plots"),
-                     paste("./Plots/", title, ".png", sep = ""),
-                     paste(title,".png", sep = ""))
+  if(dir.exists("./Plots")) {
+    if(!is.null(subfolder)) {
+      paste("./Plots/", subfolder, "/", title, ".png", sep = "")
+    } else {
+      paste("./Plots/", title, ".png", sep = "")
+    }
+  } else {
+    paste(title,".png", sep = "")
+  }
 
   png(filename, pwidth, pheight, bg="white")
 
