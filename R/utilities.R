@@ -171,3 +171,25 @@ group_proportions <- function(df, ...) {
 
 }
 
+#' Spread multiple columns from long to wide format
+#' @export
+spread_multi <- function(data, key_col, ...,
+                         fill = NA,
+                         convert = TRUE,
+                         drop = TRUE,
+                         sep = "_") {
+
+  # https://stackoverflow.com/questions/46009802/spread-multiple-columns-in-a-function
+
+  key_quo <- rlang::enquo(key_col)
+  val_quos <- rlang::quos(...)
+  value_cols <- unname(tidyselect::vars_select(names(data), !!!val_quos))
+  key_col <- unname(tidyselect::vars_select(names(data), !!key_quo))
+
+  data %>%
+    gather(key = ..var.., value = ..val.., !!!val_quos) %>%
+    unite(col = ..grp.., c(key_col, "..var.."), sep = sep) %>%
+    spread(key = ..grp.., value = ..val.., fill = fill, convert = convert,
+           drop = drop, sep = NULL)
+
+}
