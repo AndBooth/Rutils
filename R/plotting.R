@@ -17,6 +17,8 @@ theme_tidy <- function(){
 #' in your current working directory then the plot will be saved to this location.
 #' @param plot the plot to save
 #' @param title name to give file
+#' @param subfolder a subdirectory of existing 'Plots' directory where current plot
+#' should be saved
 #' @param pwidth width of the plot in pixels
 #' @param pheight heigh of the plot in pixels
 #' @export
@@ -27,12 +29,12 @@ save_plot_png <- function(plot, title,
 
   if(dir.exists("./Plots")) {
     if(!is.null(subfolder)) {
-      paste("./Plots/", subfolder, "/", title, ".png", sep = "")
+      filename <- paste("./Plots/", subfolder, "/", title, ".png", sep = "")
     } else {
-      paste("./Plots/", title, ".png", sep = "")
+      filename <- paste("./Plots/", title, ".png", sep = "")
     }
   } else {
-    paste(title,".png", sep = "")
+    filename <- paste(title,".png", sep = "")
   }
 
   png(filename, pwidth, pheight, bg="white")
