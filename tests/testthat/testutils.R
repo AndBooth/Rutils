@@ -73,14 +73,14 @@ test_that("Test group_proportions function",{
 
   test_df <- data.frame(x = c("A","A","B","B","C","C"), y = c("1","2","3","4","1","1"))
 
-  props1 <- group_proportions(test_df, "x")
-  props2 <- group_proportions(test_df, "x", "y")
+  props1 <- group_proportions(test_df, x)
+  props2 <- group_proportions(test_df, x, y)
 
   expect_equal(nrow(props1), 3)
   expect_equal(nrow(props2), 5)
   expect_length(props1, 3)
   expect_length(props2, 4)
 
-  expect_error(group_proportions(test_df, "z"))
+  expect_error(group_proportions(test_df, z))
 })
 

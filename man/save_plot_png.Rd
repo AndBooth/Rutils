@@ -4,12 +4,15 @@
 \alias{save_plot_png}
 \title{Save a ggplot2 object as a .png}
 \usage{
-save_plot_png(plot, title, pwidth = 790, pheight = 553)
+save_plot_png(plot, title, subfolder = NULL, pwidth = 790, pheight = 553)
 }
 \arguments{
 \item{plot}{the plot to save}
 
 \item{title}{name to give file}
+
+\item{subfolder}{a subdirectory of existing 'Plots' directory where current plot
+should be saved}
 
 \item{pwidth}{width of the plot in pixels}
 

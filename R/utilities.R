@@ -159,13 +159,9 @@ order_df <- function(df, x,
 #' @export
 group_proportions <- function(df, ...) {
 
-  args <- c(...)
+  args_q <- dplyr::quos(...)
 
-  if(!all(args %in% colnames(df))) {
-    stop("one of grouping variables `", paste(args, collapse = "/"), "` not found in df", call. = FALSE)
-  }
-
-  grouped <- dplyr::group_by_(df, ...)
+  grouped <- dplyr::group_by(df, !!! args_q)
   counts <- dplyr::summarise(grouped, n = n())
   dplyr::mutate(counts, props = n / sum(n))
 
