@@ -150,12 +150,10 @@ order_df <- function(df, x,
 #' @description Given a dataframe and one or more grouping variables this function will calculate the
 #' proportion of group observations within groups
 #' @param df dataframe containing the grouping variables
-#' @param ... any number of grouping variables passed as string column names
+#' @param ... any number of grouping variables passed as names
 #' @return dataframe with counts and proportions of groups within groups
-#' @note the function uses the non standard evaluation of dplyr's \code{group_by} function \code{group_by_}
-#' meaning that grouping variables should be passed as separate strings
 #' @examples
-#' group_proportions(mtcars, "hp", "cyl")
+#' group_proportions(mtcars, hp, cyl)
 #' @export
 group_proportions <- function(df, ...) {
 
