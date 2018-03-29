@@ -9,7 +9,7 @@ group_proportions(df, ...)
 \arguments{
 \item{df}{dataframe containing the grouping variables}
 
-\item{...}{any number of grouping variables passed as string column names}
+\item{...}{any number of grouping variables passed as names}
 }
 \value{
 dataframe with counts and proportions of groups within groups
@@ -18,10 +18,6 @@ dataframe with counts and proportions of groups within groups
 Given a dataframe and one or more grouping variables this function will calculate the
 proportion of group observations within groups
 }
-\note{
-the function uses the non standard evaluation of dplyr's \code{group_by} function \code{group_by_}
-meaning that grouping variables should be passed as separate strings
-}
 \examples{
-group_proportions(mtcars, "hp", "cyl")
+group_proportions(mtcars, hp, cyl)
 }
