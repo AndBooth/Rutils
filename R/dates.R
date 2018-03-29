@@ -9,11 +9,10 @@ days_of_week <- function(x,
 
   if(first_day != "Monday") {
     first_idx <- which(first_day == days_c)
-    days <- c(days[first_idx:length(days)], days[1:(first_idx - 1)])
+    days_c <- c(days_c[first_idx:length(days_c)], days_c[1:(first_idx - 1)])
   }
 
-  factor(weekdays(x), levels = days)
-
+  factor(weekdays(x), levels = days_c)
 }
 
 
