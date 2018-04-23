@@ -17,10 +17,6 @@
 
 all_na <- function(x) {
 
-  if (!is.vector(x) & !is.factor(x)) {
-    stop("Input is not a column", call. = FALSE)
-  }
-
   all(is.na(x))
 
 }
@@ -44,9 +40,9 @@ percent_empty <- function(x) {
   #label <- deparse(substitute(x))
 
   # Error if param x is not a vector type
-  if (!is.vector(x)) {
-    stop("Input '", label, "' is not of type: vector", call. = FALSE)
-  }
+ # if (!is.vector(x)) {
+ #   stop("Input '", label, "' is not of type: vector", call. = FALSE)
+#  }
 
   sum(is.na(x)) / length(x) * 100
 
