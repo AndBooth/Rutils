@@ -183,3 +183,11 @@ spread_multi <- function(data, key_col, ...,
            drop = drop, sep = NULL)
 
 }
+
+#' Get the column names from an object that match the given regex pattern
+#' @export
+colnames_grepl <- function(obj, pattern) {
+
+  colnames(obj)[grepl(pattern ,colnames(obj))]
+
+}

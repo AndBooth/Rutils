@@ -84,3 +84,10 @@ test_that("Test group_proportions function",{
   expect_error(group_proportions(test_df, z))
 })
 
+
+test_that("Test colnames grepl", {
+
+  expect_equal(colnames_grepl(mtcars, "mpg"), "mpg")
+
+})
+
